@@ -5,7 +5,7 @@ using namespace std;
 
 class Book
 {
-    private:
+private:
     int id;
     string title; 
     string author;
@@ -13,7 +13,7 @@ class Book
     int publicationYear;
     bool issued;
 
-    public:
+public:
 
     Book(); // Default Constructor
     Book(int id, const string &title, const string &author, const string& genre, int publicationYear);
