@@ -15,10 +15,7 @@ public:
     // Default Constructor 
     Person();
 
-    Person(int id,
-           const string& name,
-        const string& email, 
-        const string& phone);
+    Person(int id, const string& name, const string& email, const string& phone);
     virtual ~Person();
 
     // Setters
