@@ -39,16 +39,10 @@ void Library::searchBookById(int id) const
 // Member Functions
 void Library::addMember(const Member& member)
 {
-    if(members.find(member) != members.end())
-    {
-        cout<<"Member already exist."<<endl;
-    }
-    else
-    {
-        members.push_back(member);
-        cout<<"Member added successfully."<<endl;
-    }
+    members.push_back(member);
+    cout<<"Member added successfully."<<endl;
 }
+
 void Library::displayMembers() const
 {
     if(members.empty())
@@ -80,4 +74,48 @@ void Library::displayLibrarians() const
         librarian.display();
         cout<<endl;
     }
+}
+//Issue Book
+void Library::issueBook(int bookId)
+{
+    for(Book& book: books)
+    {
+        if(book.getId() == bookId)
+        {
+            if(!book.isIssued())
+            {
+                book.issueBook();
+                cout<< "Book issued successfully."<<endl;
+            }
+            else
+            {
+                cout<<"Book is already issued."<<endl;
+            }
+            return;
+        }
+    }
+    cout<<"Book not found"<<endl;
+}
+
+//Return Book
+void Library::returnBook(int bookId)
+{
+    for(Book& book : books)
+    {
+        if(book.getId() == bookId)
+        {
+            if(book.isIssued())
+            {
+                book.returnBook();
+                cout<<"Book returned successfully."<<endl;
+            }
+            else
+            {
+                cout<<"Book is already available."<<endl;
+            }
+
+            return;
+        }
+    }
+    cout<<"Book not found."<<endl;
 }
